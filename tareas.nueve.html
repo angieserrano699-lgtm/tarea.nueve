@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarea 9 - Catálogo Unificado con Modo Oscuro</title>
+
+  <!-- Tailwind CSS con soporte para la estrategia por clase -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+    }
+  </script>
+
+  <!-- Fuente Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-gray-100 text-gray-800 transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100">
+
+  <!-- NAVBAR CON TOGGLE SWITCH -->
+  <header class="sticky top-0 z-50 border-b border-gray-200 bg-white shadow-sm transition-colors duration-300 dark:border-gray-800 dark:bg-gray-800">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">🛒</span>
+        <h1 class="text-xl font-bold tracking-wide text-gray-900 dark:text-white sm:text-2xl">
+          Catálogo de Productos
+        </h1>
+      </div>
+
+      <!-- BOTÓN CAMBIO DE TEMA -->
+      <button
+        id="theme-toggle"
+        type="button"
+        class="flex items-center gap-2 rounded-lg border border-gray-300 bg-gray-50 px-3 py-1.5 text-xs font-semibold text-gray-700 transition hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 sm:text-sm"
+        aria-label="Alternar modo oscuro"
+      >
+        <span id="theme-toggle-icon">🌙</span>
+        <span id="theme-toggle-text">Modo Oscuro</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+
+    <!-- SECCIÓN 1: PRODUCTOS ABARROTES (Mantenido con estructura Flexbox Mobile First) -->
+    <section class="mb-12" aria-label="Sección Abarrotes">
+      <h2 class="mb-6 text-xl font-bold text-gray-800 dark:text-gray-100 sm:text-2xl">
+        Abarrotes y Condimentos
+      </h2>
+
+      <div class="flex flex-wrap justify-center gap-4">
+
+        <!-- Producto 1 -->
+        <article class="flex w-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800 sm:basis-[calc(50%-0.5rem)] md:basis-[calc(33.333%-0.67rem)] lg:basis-[calc(25%-0.75rem)]">
+          <div class="flex h-44 items-center justify-center bg-gray-50 p-3 dark:bg-gray-700 sm:h-40 md:h-36">
+            <img src="https://walmartgt.vtexassets.com/arquivos/ids/875555/69174_01.jpg?v=638930472125700000" alt="B&B Mayonesa Clásica" class="h-full w-full object-contain">
+          </div>
+          <div class="flex flex-1 flex-col p-4 text-center">
+            <h3 class="min-h-10 text-xs font-semibold leading-tight text-gray-800 dark:text-gray-200">
+              B&B Mayonesa Clásica Bolsa 880g
+            </h3>
+            <p class="mt-2 text-base font-bold text-blue-700 dark:text-blue-400">L 77.99</p>
+            <div class="mt-3 flex items-center justify-center gap-2">
+              <button type="button" class="h-8 w-8 rounded-full bg-gray-200 text-lg font-bold text-gray-700 transition hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">-</button>
+              <input type="number" min="1" value="1" class="h-8 w-12 rounded border border-gray-300 bg-white text-center text-xs text-gray-800 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100">
+              <button type="button" class="h-8 w-8 rounded-full bg-gray-200 text-lg font-bold text-gray-700 transition hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">+</button>
+            </div>
+            <button type="button" class="mx-auto mt-4 flex h-9 w-9 items-center justify-center rounded-full bg-blue-700 text-white shadow-md transition hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-500">🛒</button>
+          </div>
+        </article>
+
+        <!-- Producto 2 -->
+        <article class="flex w-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800 sm:basis-[calc(50%-0.5rem)] md:basis-[calc(33.333%-0.67rem)] lg:basis-[calc(25%-0.75rem)]">
+          <div class="flex h-44 items-center justify-center bg-gray-50 p-3 dark:bg-gray-700 sm:h-40 md:h-36">
+            <img src="https://walmarthn.vtexassets.com/arquivos/ids/481497/59577_01.jpg?v=638623926035400000" alt="B&B Mostaza Tradicional" class="h-full w-full object-contain">
+          </div>
+          <div class="flex flex-1 flex-col p-4 text-center">
+            <h3 class="min-h-10 text-xs font-semibold leading-tight text-gray-800 dark:text-gray-200">
+              B&B Mostaza Tradicional 390g
+            </h3>
+            <p class="mt-2 text-base font-bold text-blue-700 dark:text-blue-400">L 25.20</p>
+            <div class="mt-3 flex items-center justify-center gap-2">
+              <button type="button" class="h-8 w-8 rounded-full bg-gray-200 text-lg font-bold text-gray-700 transition hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">-</button>
+              <input type="number" min="1" value="1" class="h-8 w-12 rounded border border-gray-300 bg-white text-center text-xs text-gray-800 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100">
+              <button type="button" class="h-8 w-8 rounded-full bg-gray-200 text-lg font-bold text-gray-700 transition hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">+</button>
+            </div>
+            <button type="button" class="mx-auto mt-4 flex h-9 w-9 items-center justify-center rounded-full bg-blue-700 text-white shadow-md transition hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-500">🛒</button>
+          </div>
+        </article>
+
+        <!-- Producto 3 -->
+        <article class="flex w-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800 sm:basis-[calc(50%-0.5rem)] md:basis-[calc(33.333%-0.67rem)] lg:basis-[calc(25%-0.75rem)]">
+          <div class="flex h-44 items-center justify-center bg-gray-50 p-3 dark:bg-gray-700 sm:h-40 md:h-36">
+            <img src="https://cdn.shopify.com/s/files/1/0566/4391/1854/products/7501005152006.webp?v=1672933132" alt="Hellmann's Mayonesa Light" class="h-full w-full object-contain">
+          </div>
+          <div class="flex flex-1 flex-col p-4 text-center">
+            <h3 class="min-h-10 text-xs font-semibold leading-tight text-gray-800 dark:text-gray-200">
+              Hellmann's Mayonesa Light 395g
+            </h3>
+            <p class="mt-2 text-base font-bold text-blue-700 dark:text-blue-400">L 39.99</p>
+            <div class="mt-3 flex items-center justify-center gap-2">
+              <button type="button" class="h-8 w-8 rounded-full bg-gray-200 text-lg font-bold text-gray-700 transition hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">-</button>
+              <input type="number" min="1" value="1" class="h-8 w-12 rounded border border-gray-300 bg-white text-center text-xs text-gray-800 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100">
+              <button type="button" class="h-8 w-8 rounded-full bg-gray-200 text-lg font-bold text-gray-700 transition hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">+</button>
+            </div>
+            <button type="button" class="mx-auto mt-4 flex h-9 w-9 items-center justify-center rounded-full bg-blue-700 text-white shadow-md transition hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-500">🛒</button>
+          </div>
+        </article>
+
+        <!-- Producto 4 -->
+        <article class="flex w-full flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800 sm:basis-[calc(50%-0.5rem)] md:basis-[calc(33.333%-0.67rem)] lg:basis-[calc(25%-0.75rem)]">
+          <div class="flex h-44 items-center justify-center bg-gray-50 p-3 dark:bg-gray-700 sm:h-40 md:h-36">
+            <img src="https://img.lazcdn.com/g/p/59dea663d15eeaaaa8d31ee80d31c802.jpg_720x720q80.jpg_.webp" alt="Heinz Yellow Mustard" class="h-full w-full object-contain">
+          </div>
+          <div class="flex flex-1 flex-col p-4 text-center">
+            <h3 class="min-h-10 text-xs font-semibold leading-tight text-gray-800 dark:text-gray-200">
+              Heinz Yellow Mustard 566g
+            </h3>
+            <p class="mt-2 text-base font-bold text-blue-700 dark:text-blue-400">L 141.99</p>
+            <div class="mt-3 flex items-center justify-center gap-2">
+              <button type="button" class="h-8 w-8 rounded-full bg-gray-200 text-lg font-bold text-gray-700 transition hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">-</button>
+              <input type="number" min="1" value="1" class="h-8 w-12 rounded border border-gray-300 bg-white text-center text-xs text-gray-800 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-100">
+              <button type="button" class="h-8 w-8 rounded-full bg-gray-200 text-lg font-bold text-gray-700 transition hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">+</button>
+            </div>
+            <button type="button" class="mx-auto mt-4 flex h-9 w-9 items-center justify-center rounded-full bg-blue-700 text-white shadow-md transition hover:bg-blue-800 dark:bg-blue-600 dark:hover:bg-blue-500">🛒</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: MENÚ DE PIZZAS (Mantenido con estructura CSS Grid Responsive) -->
+    <section aria-label="Sección Pizzas">
+      <h2 class="mb-6 text-xl font-bold text-gray-800 dark:text-gray-100 sm:text-2xl">
+        Pizzas y Menú Principal
+      </h2>
+
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
+        <!-- Pizza 1 -->
+        <article class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+          <img src="https://www.laprensa.hn/binrepository/1200x900/0c0/0d0/none/11004/EPED/portada-32_8598357_20240919223819.jpg" alt="Hut Cheese Mediana" class="h-48 w-full object-cover">
+          <div class="p-4">
+            <h3 class="text-lg font-bold text-gray-800 dark:text-white">
+              HUT CHEESE MEDIANA
+            </h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+              Nuestra deliciosa pizza con borde relleno de queso, cubierta con queso mozzarella.
+            </p>
+            <p class="mt-4 text-xl font-bold text-red-600 dark:text-red-400">
+              L. 189
+            </p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <button type="button" class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 font-bold text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">-</button>
+                <span class="font-semibold text-gray-800 dark:text-gray-200">1</span>
+                <button type="button" class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 font-bold text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">+</button>
+              </div>
+              <button type="button" class="rounded-lg bg-red-600 px-4 py-2 font-semibold text-white transition hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-600">
+                ORDENAR
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pizza 2 -->
+        <article class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+          <img src="https://www.laprensa.hn/binrepository/1200x900/0c0/0d0/none/11004/ROOM/untitled-session1412-2_6939826_20240308113618.jpg" alt="Big New Yorker Hot Honey" class="h-48 w-full object-cover">
+          <div class="p-4">
+            <h3 class="text-lg font-bold text-gray-800 dark:text-white">
+              BIG NEW YORKER HOT HONEY
+            </h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+              Pizza estilo New York con pepperoni, mozzarella y toque dulce y picante.
+            </p>
+            <p class="mt-4 text-xl font-bold text-red-600 dark:text-red-400">
+              L. 329
+            </p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <button type="button" class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 font-bold text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">-</button>
+                <span class="font-semibold text-gray-800 dark:text-gray-200">1</span>
+                <button type="button" class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 font-bold text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">+</button>
+              </div>
+              <button type="button" class="rounded-lg bg-red-600 px-4 py-2 font-semibold text-white transition hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-600">
+                ORDENAR
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pizza 3 -->
+        <article class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+          <img src="https://tgustahn.com/images/joomlart/cat-red/WhatsApp-Image-2023-09-08-at-9.15.29-AM-2.jpeg" alt="Big New Yorker Trío de Carnes" class="h-48 w-full object-cover">
+          <div class="p-4">
+            <h3 class="text-lg font-bold text-gray-800 dark:text-white">
+              TRÍO DE CARNES
+            </h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+              Pepperoni, salchicha italiana y bacon con mozzarella, orégano y parmesano.
+            </p>
+            <p class="mt-4 text-xl font-bold text-red-600 dark:text-red-400">
+              L. 339
+            </p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <button type="button" class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 font-bold text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">-</button>
+                <span class="font-semibold text-gray-800 dark:text-gray-200">1</span>
+                <button type="button" class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 font-bold text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">+</button>
+              </div>
+              <button type="button" class="rounded-lg bg-red-600 px-4 py-2 font-semibold text-white transition hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-600">
+                ORDENAR
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pizza 4 -->
+        <article class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-md transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+          <img src="https://www.pizzahut.com.sv/static/media/images/images/jpg/4820_1_03-01-2024-21-52.jpg" alt="Pizza Base de Queso" class="h-48 w-full object-cover">
+          <div class="p-4">
+            <h3 class="text-lg font-bold text-gray-800 dark:text-white">
+              PIZZA BASE DE QUESO
+            </h3>
+            <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
+              Pizza gigante con queso mozzarella y salsa de pizza.
+            </p>
+            <p class="mt-4 text-xl font-bold text-red-600 dark:text-red-400">
+              L. 199
+            </p>
+            <div class="mt-4 flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <button type="button" class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 font-bold text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">-</button>
+                <span class="font-semibold text-gray-800 dark:text-gray-200">1</span>
+                <button type="button" class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-200 font-bold text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600">+</button>
+              </div>
+              <button type="button" class="rounded-lg bg-red-600 px-4 py-2 font-semibold text-white transition hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-600">
+                ORDENAR
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="mt-12 border-t border-gray-200 bg-white py-6 text-center text-xs text-gray-500 dark:border-gray-800 dark:bg-gray-800 dark:text-gray-400">
+  
+  </footer>
+
+  <!-- SCRIPT PARA INTERCAMBIO DE TEMA Y PERSISTENCIA EN LOCALSTORAGE -->
+  <script>
+    const htmlElement = document.documentElement;
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const themeToggleIcon = document.getElementById('theme-toggle-icon');
+    const themeToggleText = document.getElementById('theme-toggle-text');
+
+    // Detectar o cargar preferencia guardada
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+      htmlElement.classList.add('dark');
+      htmlElement.classList.remove('light');
+      themeToggleIcon.textContent = '☀️';
+      themeToggleText.textContent = 'Modo Claro';
+    } else {
+      htmlElement.classList.remove('dark');
+      htmlElement.classList.add('light');
+      themeToggleIcon.textContent = '🌙';
+      themeToggleText.textContent = 'Modo Oscuro';
+    }
+
+    // Evento de clic para alternar
+    themeToggleBtn.addEventListener('click', () => {
+      if (htmlElement.classList.contains('dark')) {
+        htmlElement.classList.remove('dark');
+        htmlElement.classList.add('light');
+        localStorage.setItem('theme', 'light');
+        themeToggleIcon.textContent = '🌙';
+        themeToggleText.textContent = 'Modo Oscuro';
+      } else {
+        htmlElement.classList.add('dark');
+        htmlElement.classList.remove('light');
+        localStorage.setItem('theme', 'dark');
+        themeToggleIcon.textContent = '☀️';
+        themeToggleText.textContent = 'Modo Claro';
+      }
+    });
+  </script>
+</body>
+</html>
